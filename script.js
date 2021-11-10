@@ -13,7 +13,7 @@ function playRound(playerSelection, computerSelection) {
   let finalResult;
 
   if (playerSelection === computerSelection) {
-    finalResult = `Tie game!`;
+    finalResult = `Tie round!`;
   } else if (
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "scissors" && playerSelection == "paper") ||
@@ -28,24 +28,34 @@ function playRound(playerSelection, computerSelection) {
   return finalResult;
 }
 
-function game() {
-  let round = 1;
-  while (round <= 5) {
-    console.log(`Round ${round}`);
-    let playerPick = prompt("Make a selection!");
+const buttons = document.querySelectorAll("button");
+buttons.forEach((btn) =>
+  btn.addEventListener("click", function (e) {
+    let playerPick = btn.textContent;
     let computerPick = computerPlay();
+    console.log(`Cpu pick: ${computerPick}; User pick: ${playerPick};`);
     console.log(playRound(playerPick, computerPick));
-    console.log(`User:${playerScore}; Cpu:${computerScore};`);
-    round++;
-  }
+  })
+);
 
-  if(playerScore === computerScore){
-    console.log("No Winners! Tie game");
-  }else if (playerScore > computerScore){
-    console.log("User Wins!");
-  }else if (computerScore > playerScore){
-    console.log("CPU Wins!");
-  }
-}
+// function game() {
+//   let round = 1;
+//   while (round <= 5) {
+//     console.log(`Round ${round}`);
+//     let playerPick = prompt("Make a selection!");
+//     let computerPick = computerPlay();
+//     console.log(playRound(playerPick, computerPick));
+//     console.log(`User:${playerScore}; Cpu:${computerScore};`);
+//     round++;
+//   }
 
-game();
+//   if(playerScore === computerScore){
+//     console.log("No Winners! Tie game");
+//   }else if (playerScore > computerScore){
+//     console.log("User Wins!");
+//   }else if (computerScore > playerScore){
+//     console.log("CPU Wins!");
+//   }
+// }
+
+// game();
