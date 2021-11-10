@@ -29,14 +29,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach((btn) =>
-  btn.addEventListener("click", function (e) {
-    let playerPick = btn.textContent;
-    let computerPick = computerPlay();
-    console.log(`Cpu pick: ${computerPick}; User pick: ${playerPick};`);
-    console.log(playRound(playerPick, computerPick));
-  })
-);
+buttons.forEach((btn) => btn.addEventListener("click", game));
+
+function game(e) {
+  let playerPick = e.target.textContent;
+  let computerPick = computerPlay();
+  console.log(`Cpu pick: ${computerPick}; User pick: ${playerPick};`);
+  console.log(playRound(playerPick, computerPick));
+}
 
 // function game() {
 //   let round = 1;
