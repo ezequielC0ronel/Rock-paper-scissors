@@ -1,3 +1,4 @@
+//Funcionalidad del juego
 let valuesArray = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
