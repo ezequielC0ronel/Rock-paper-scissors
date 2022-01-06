@@ -60,3 +60,11 @@ function game(e) {
 // }
 
 // game();
+
+//DOM Methods
+const container = document.querySelector('.container');
+
+//adding resultsDiv
+const resultsDiv = document.createElement('div');
+resultsDiv.setAttribute('class', 'results');
+container.appendChild(resultsDiv);
