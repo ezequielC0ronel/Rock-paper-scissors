@@ -11,22 +11,21 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
-  let finalResult;
 
   if (playerSelection === computerSelection) {
-    finalResult = `Tie round!`;
+    parraph.textContent = `Tie round! No points`;
   } else if (
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "scissors" && playerSelection == "paper") ||
     (computerSelection == "paper" && playerSelection == "rock")
   ) {
-    finalResult = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    parraph.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     computerScore++;
   } else {
-    finalResult = `You Win! ${playerSelection} beats ${computerSelection}`;
+    parraph.textContent = `You Win! ${playerSelection} beats ${computerSelection}`
+    // finalResult = `You Win! ${playerSelection} beats ${computerSelection}`;
     playerScore++;
   }
-  return finalResult;
 }
 
 const buttons = document.querySelectorAll("button");
@@ -35,7 +34,7 @@ buttons.forEach((btn) => btn.addEventListener("click", game));
 function game(e) {
   let playerPick = e.target.textContent;
   let computerPick = computerPlay();
-  console.log(`Cpu pick: ${computerPick}; User pick: ${playerPick};`);
+  // console.log(`Cpu pick: ${computerPick}; User pick: ${playerPick};`);
   console.log(playRound(playerPick, computerPick));
 }
 
