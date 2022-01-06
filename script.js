@@ -67,4 +67,9 @@ const container = document.querySelector('.container');
 //adding resultsDiv
 const resultsDiv = document.createElement('div');
 resultsDiv.setAttribute('class', 'results');
+
+//adding p to show the results of a game
+const parraph = document.createElement('p');
+resultsDiv.appendChild(parraph);
+
 container.appendChild(resultsDiv);
