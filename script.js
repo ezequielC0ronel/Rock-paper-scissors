@@ -21,10 +21,12 @@ function playRound(playerSelection, computerSelection) {
   ) {
     parraph.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
     computerScore++;
+    computerScoreDiv.textContent = computerScore;
   } else {
     parraph.textContent = `You Win! ${playerSelection} beats ${computerSelection}`
     // finalResult = `You Win! ${playerSelection} beats ${computerSelection}`;
     playerScore++;
+    playerScoreDiv.textContent = playerScore;
   }
 }
 
@@ -35,7 +37,8 @@ function game(e) {
   let playerPick = e.target.textContent;
   let computerPick = computerPlay();
   // console.log(`Cpu pick: ${computerPick}; User pick: ${playerPick};`);
-  console.log(playRound(playerPick, computerPick));
+  // console.log(playRound(playerPick, computerPick));
+  playRound(playerPick, computerPick);
 }
 
 // function game() {
@@ -70,5 +73,19 @@ resultsDiv.setAttribute('class', 'results');
 //adding p to show the results of a game
 const parraph = document.createElement('p');
 resultsDiv.appendChild(parraph);
+
+//score divs and container
+const scoreContainer = document.createElement('div');
+scoreContainer.setAttribute('class', 'gameScore');
+
+const playerScoreDiv = document.createElement('div');
+playerScoreDiv.textContent = "0";
+
+const computerScoreDiv = document.createElement('div');
+computerScoreDiv.textContent = "0";
+
+scoreContainer.append(playerScoreDiv, computerScoreDiv);
+
+resultsDiv.appendChild(scoreContainer);
 
 container.appendChild(resultsDiv);
